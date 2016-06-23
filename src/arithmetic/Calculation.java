@@ -21,11 +21,11 @@ public class Calculation {
             }
         }
 
-
         return minValue;
     }
 
     public int maxOfArr(int ... arrs) {
+
         if (arrs.length <=0 ){
             throw new IllegalArgumentException("input number nust not be null !");
         }
@@ -43,11 +43,14 @@ public class Calculation {
     }
 
     public int countOfArr(int ...arrs) {
+
         return arrs.length;
     }
 
     public int sumOfArr(int ...arrs) {
+
         int sumValue = 0;
+
         for (int i = 0; i < arrs.length; i++){
             sumValue += arrs[i];
         }
@@ -56,10 +59,15 @@ public class Calculation {
 
     public double averageOfArr(int ... arrs) {
 
+        int sumValue = 0;
         if (arrs.length == 0){
             return 0.0;
         }
 
-        return sumOfArr(arrs)*1.0/countOfArr(arrs);
+        for (int i = 0; i < arrs.length; i++){
+            sumValue += arrs[i];
+        }
+
+        return sumValue * 1.0 / arrs.length;
     }
 }

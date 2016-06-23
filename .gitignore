@@ -1,0 +1,5 @@
+#忽略target
+target/
+#忽略idea的配置
+*.iml
+.idea/

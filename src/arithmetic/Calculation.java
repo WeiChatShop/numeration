@@ -7,7 +7,7 @@ import arithApi.Operation;
  */
 public class Calculation {
 
-    public int minOfArr(int... arrs) {
+    public int minOfArr(Operation operation,int... arrs) {
 
         if (arrs.length <=0 ){
             throw new IllegalArgumentException("input number nust not be null !");
@@ -16,30 +16,25 @@ public class Calculation {
         int minValue = arrs[0];
 
         for (int i = 1; i < arrs.length; i++){
-            if (minValue > arrs[i]){
-                minValue = arrs[i];
-            }
+            minValue = operation.operationPredicate(arrs[i],minValue);
         }
 
         return minValue;
     }
 
-    public int maxOfArr(int ... arrs) {
+    public int maxOfArr(Operation operation,int ... arrs) {
 
         if (arrs.length <=0 ){
             throw new IllegalArgumentException("input number nust not be null !");
         }
 
-        int minValue = arrs[0];
+        int maxValue = arrs[0];
 
         for (int i = 1; i < arrs.length; i++){
-            if (minValue < arrs[i]){
-                minValue = arrs[i];
-            }
+            maxValue = operation.operationPredicate(arrs[i],maxValue);
         }
 
-
-        return minValue;
+        return maxValue;
     }
 
     public int countOfArr(int ...arrs) {
@@ -47,17 +42,17 @@ public class Calculation {
         return arrs.length;
     }
 
-    public int sumOfArr(int ...arrs) {
+    public int sumOfArr(Operation operation,int ...arrs) {
 
         int sumValue = 0;
 
         for (int i = 0; i < arrs.length; i++){
-            sumValue += arrs[i];
+            sumValue = operation.operationPredicate(arrs[i],sumValue);
         }
         return sumValue;
     }
 
-    public double averageOfArr(int ... arrs) {
+    public double averageOfArr(Operation operation,int ... arrs) {
 
         int sumValue = 0;
         if (arrs.length == 0){
@@ -65,7 +60,7 @@ public class Calculation {
         }
 
         for (int i = 0; i < arrs.length; i++){
-            sumValue += arrs[i];
+            sumValue = operation.operationPredicate(arrs[i],sumValue);
         }
 
         return sumValue * 1.0 / arrs.length;

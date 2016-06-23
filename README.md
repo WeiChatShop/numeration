@@ -9,4 +9,4 @@
 4.求数组元素的和int sumOfArr(Operation operation,int ...arrs)
 例如:1, 2, 3, 4之和为10
 5.求数组平均数double averageOfArr(Operation operation,int ... arrs)
-例如:1, 2, 3, 4平均值为2.5
+例如:1, 2, 3, 4平均值为2.5  

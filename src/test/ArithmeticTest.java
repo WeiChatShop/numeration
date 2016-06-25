@@ -5,11 +5,6 @@ import arithApi.Operation;
 import arithmetic.Calculation;
 import junit.framework.TestCase;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-
 /**
  * Created by zhaomingwei on 16/6/18.
  */

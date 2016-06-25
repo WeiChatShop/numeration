@@ -11,21 +11,12 @@ import junit.framework.TestCase;
 public class ArithmeticTest extends TestCase {
     private Calculation operation = new Calculation();
     public void testTheMinOfArr(){
-        int minValue = operation.minOfArr(new Operation() {
-            public int operationPredicate(int num1, int num2) {
-                return num1 < num2 ? num1 : num2;
-            }
-        },1, -1, -6);
+        int minValue = operation.minOfArr(1, -1, -6);
         assertEquals(minValue,-6);
     }
 
     public void testTheMaxOfArr(){
-        int maxValue = operation.maxOfArr(new Operation() {
-            public int operationPredicate(int num1, int num2) {
-                return num1 > num2 ? num1 : num2;
-            }
-        },
-            1, 2, -2);
+        int maxValue = operation.maxOfArr(1, 2, -2);
         assertEquals(maxValue,2);
     }
 
@@ -35,20 +26,12 @@ public class ArithmeticTest extends TestCase {
     }
 
     public void testSumOfArr(){
-        int sumOfArrValue = operation.sumOfArr(new Operation() {
-            public int operationPredicate(int num1, int num2) {
-                return num1 + num2;
-            }
-        },1, 2, 3, 4);
+        int sumOfArrValue = operation.sumOfArr(1, 2, 3, 4);
         assertEquals(sumOfArrValue,10);
     }
 
     public void testAverageOfArr(){
-        double averOfArrValue = operation.averageOfArr(new Operation() {
-            public int operationPredicate(int num1, int num2) {
-                return num1 + num2;
-            }
-        },1,2,3,4);
+        double averOfArrValue = operation.averageOfArr(1,2,3,4);
         assertEquals(averOfArrValue,2.5);
     }
 

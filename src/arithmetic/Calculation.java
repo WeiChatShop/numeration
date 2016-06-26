@@ -7,18 +7,14 @@ import arithApi.Operation;
  */
 public class Calculation {
 
-    private final Operation minOfArrOperation = new MinOfArrOperation();
-    private final Operation maxOfArrOperation = new MaxOfArrOperation();
-    private final Operation sumOfArrOperation = new SumOfArrOperation();
-
     public int minOfArr(int... arrs) {
 
-        return excute(minOfArrOperation,arrs);
+        return excute((v1,v2) -> v1<v2 ? v1:v2,arrs);
     }
 
     public int maxOfArr(int ... arrs) {
 
-        return excute(maxOfArrOperation,arrs);
+        return excute( (v1,v2)-> v1>v2 ? v1:v2 ,arrs);
     }
 
     public int countOfArr(int ...arrs) {
@@ -28,11 +24,11 @@ public class Calculation {
 
     public int sumOfArr(int ...arrs) {
 
-        return excute(sumOfArrOperation,arrs);
+        return excute((v1,v2) -> v1+v2,arrs);
     }
 
     public double averageOfArr(int ... arrs) {
-        return excute(sumOfArrOperation,arrs) * 1.0 / arrs.length;
+        return excute((v1,v2)->v1+v2,arrs) * 1.0 / arrs.length;
     }
 
     private int excute(Operation operation,int ...  arrs){
@@ -47,23 +43,7 @@ public class Calculation {
 
         return returnValue;
     }
-    private static class MinOfArrOperation implements Operation {
-        public int operationPredicate(int num1, int num2) {
-            return num1 < num2 ? num1 : num2;
-        }
-    }
 
-    private static class MaxOfArrOperation implements Operation {
-        public int operationPredicate(int num1, int num2) {
-            return num1 > num2 ? num1 : num2;
-        }
-    }
-
-    private static class SumOfArrOperation implements Operation{
-        public int operationPredicate(int num1, int num2) {
-            return num1 + num2;
-        }
-    }
 
 
 }

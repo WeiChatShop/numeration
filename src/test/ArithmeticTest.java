@@ -1,7 +1,6 @@
 package test;
 
 
-import arithApi.Operation;
 import arithmetic.Calculation;
 import junit.framework.TestCase;
 

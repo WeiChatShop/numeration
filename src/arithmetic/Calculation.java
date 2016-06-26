@@ -13,32 +13,12 @@ public class Calculation {
 
     public int minOfArr(int... arrs) {
 
-        if (arrs.length <=0 ){
-            throw new IllegalArgumentException("input number nust not be null !");
-        }
-
-        int minValue = arrs[0];
-
-        for (int i = 1; i < arrs.length; i++){
-            minValue = minOfArrOperation.operationPredicate(arrs[i],minValue);
-        }
-
-        return minValue;
+        return excute(minOfArrOperation,arrs);
     }
 
     public int maxOfArr(int ... arrs) {
 
-        if (arrs.length <=0 ){
-            throw new IllegalArgumentException("input number nust not be null !");
-        }
-
-        int maxValue = arrs[0];
-
-        for (int i = 1; i < arrs.length; i++){
-            maxValue = maxOfArrOperation.operationPredicate(arrs[i],maxValue);
-        }
-
-        return maxValue;
+        return excute(maxOfArrOperation,arrs);
     }
 
     public int countOfArr(int ...arrs) {
@@ -48,28 +28,25 @@ public class Calculation {
 
     public int sumOfArr(int ...arrs) {
 
-        int sumValue = 0;
-
-        for (int i = 0; i < arrs.length; i++){
-            sumValue = sumOfArrOperation.operationPredicate(arrs[i],sumValue);
-        }
-        return sumValue;
+        return excute(sumOfArrOperation,arrs);
     }
 
     public double averageOfArr(int ... arrs) {
-
-        int sumValue = 0;
-        if (arrs.length == 0){
-            return 0.0;
-        }
-
-        for (int i = 0; i < arrs.length; i++){
-            sumValue = sumOfArrOperation.operationPredicate(arrs[i],sumValue);
-        }
-
-        return sumValue * 1.0 / arrs.length;
+        return excute(sumOfArrOperation,arrs) * 1.0 / arrs.length;
     }
 
+    private int excute(Operation operation,int ...  arrs){
+        if (arrs.length <=0 ){
+            throw new IllegalArgumentException("input number nust not be null !");
+        }
+
+        int returnValue = arrs[0];
+        for (int i = 1; i < arrs.length; i++){
+            returnValue = operation.operationPredicate(returnValue,arrs[i]);
+        }
+
+        return returnValue;
+    }
     private static class MinOfArrOperation implements Operation {
         public int operationPredicate(int num1, int num2) {
             return num1 < num2 ? num1 : num2;

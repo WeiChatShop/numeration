@@ -1,4 +1,7 @@
 # numeration
+
+## 功能介绍
+
 对数组进行计算:
 
 1.求数组中最小的数字:int minOfArr(Operation operation,int... arrs)
@@ -20,3 +23,7 @@
 5.求数组平均数double averageOfArr(Operation operation,int ... arrs)
 
 例如:1, 2, 3, 4平均值为2.5
+
+##技术介绍
+
+主要对Java8的新特性进行练习,进行了一个整型数组计算的升级过程,从基础的到Java8新特性
